@@ -1,38 +1,52 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+p, a {
+  font-family: 'Montserrat';
+}
+.p__standard {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  margin-top: 50px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container-addNote__form {
+  display: grid;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.addNote-form {
+  display: grid !important;
 }
-
-.App-link {
-  color: #61dafb;
+.addNote-textField { 
+  margin: 10px auto !important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.addNote-button {
+  margin: 10px auto !important;
+  padding: 5px 25px !important;
+}
+.note-card {
+  margin: 5px !important;
+  border: 1px solid black !important;
+}
+.note-card__icon {
+  width: 20px;
+  height: 20px;
+  position: relative !important;
+  left: 80% !important;
+}
+.note-card__icon:hover {
+  cursor: pointer;
+}
+.note-card__tag {
+  font-size: 10px !important;
+  color: blue;
+}
+.note-card__tag:hover {
+  cursor: pointer;
+}
+.note-card__actions {
+  place-content: center !important;
+}
+.rti--container {
+  display: block !important;
+  width: 50% !important;
+  margin: auto !important;
 }

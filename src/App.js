@@ -1,25 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+//COMPONENTS
+import AddNote from './components/AddNote';
+import Notes from './components/Notes';
+//MUI
+import Grid from '@material-ui/core/Grid';
+//REDUX
+import {connect, Provider} from 'react-redux';
+import store from './redux/store';
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <Grid container className="container">
+        <Grid item xs={1}/>
+        <Grid item xs={10}>
+          <AddNote/>
+          <Grid container className="container">
+            <Notes/>
+          </Grid>
+        </Grid>
+        <Grid item xs={1}/>
+      </Grid>
+    </Provider>
+  )
 }
 
 export default App;
