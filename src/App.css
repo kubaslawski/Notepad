@@ -8,6 +8,7 @@ p, a {
 
 .container {
   margin-top: 50px;
+  place-content: center;
 }
 .container-addNote__form {
   display: grid;
@@ -21,6 +22,15 @@ p, a {
 .addNote-button {
   margin: 10px auto !important;
   padding: 5px 25px !important;
+}
+.addNote-p {
+  color: #2e49e2;
+}
+.addNote-p:hover {
+  cursor: pointer;
+}
+.addNote-icon {
+  width: 15px
 }
 .note-card {
   margin: 5px !important;
@@ -49,4 +59,14 @@ p, a {
   display: block !important;
   width: 50% !important;
   margin: auto !important;
+}
+.notes-div {
+  display: flex;
+  place-content: center;
+}
+.notes-button {
+  margin: auto 10px !important;
+}
+.notes-textfield {
+  margin: auto;
 }

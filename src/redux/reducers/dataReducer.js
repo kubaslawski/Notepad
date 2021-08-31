@@ -3,13 +3,13 @@ import {
     SET_NOTES,
     ADD_NOTE,
     DELETE_NOTE,
+    SET_NOTES_BY_HASH,
 } from '../types';
 
 const initialState = {
     notes: [],
 };
 
-let index;
 export default function(state=initialState, action){
     let index;
     switch(action.type){
@@ -32,6 +32,12 @@ export default function(state=initialState, action){
             return {
                 ...state
             }
+        case SET_NOTES_BY_HASH:
+            return {
+                ...state,
+                notes: state.notes.filter((note) => note.tags.includes(action.payload.trim()))
+            }
+            
         default:
             return state;
     }

@@ -6,6 +6,7 @@ import {setNotes} from '../redux/actions/dataActions';
 import { connect } from 'react-redux'
 import { TextField } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 export const Notes = ({setNotes, data}) => {
 
@@ -20,24 +21,37 @@ export const Notes = ({setNotes, data}) => {
         setFilters(event.target.value)
     }
 
-    const notes = data.notes;
+    const handleSubmit = () => {
+        setNotes();
+    }
+
+    let notes = data.notes;
 
     return (
         <>
-        <TextField
-            id="filter"
-            name="filter"
-            label="Note filter"
+        <div className="notes-div">
+            <Button
+            className="notes-button"
             variant="outlined"
-            value={filter}
-            className="addNote-textField"
-            onChange={handleChange}
-            required={true}
-        />
+            color="primary"
+            onClick={handleSubmit}
+            >
+                Get all notes
+            </Button>
+            <TextField
+                id="filter"
+                name="filter"
+                label="Search notes"
+                variant="outlined"
+                value={filter}
+                className="notes-textfield"
+                onChange={handleChange}
+            />
+        </div>
         <Grid container className="container">
         {notes.filter(note => {
             if(!filter) return true;
-            if(note.title.toLowerCase().includes(filter.toLowerCase())){
+            if(note.title.toLowerCase().includes(filter.toLowerCase()) || note.description.toLowerCase().includes(filter.toLowerCase()) || note.tags.includes(filter)){
                 return true;
             }
             return false;

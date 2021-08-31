@@ -1,4 +1,4 @@
-import { SET_NOTES, ADD_NOTE, DELETE_NOTE } from "../types";
+import { SET_NOTES, ADD_NOTE, DELETE_NOTE, SET_NOTES_BY_HASH } from "../types";
 
 export const setNotes = () =>  dispatch => {
     let notes = [];
@@ -20,7 +20,6 @@ export const addNote = note => dispatch => {
 }
 
 export const deleteNote = note => dispatch => {
-    
     Object.keys(localStorage).forEach(function(key){
         var item = JSON.parse(localStorage.getItem(key))
         console.log(note.id === item.id)
@@ -35,33 +34,9 @@ export const deleteNote = note => dispatch => {
     })
 }
 
-
-// export const setCars = () => dispatch => {
-//     axios.get('http://localhost:3002/offers')
-//         .then((res => {
-//             dispatch({
-//                 type: SET_CARS,
-//                 payload: res.data
-//             })
-//         }))
-//         .catch(err => console.error(err))
-// }
-
-// export const editCarStatus = offer => dispatch => {
-//     axios.put(`http://localhost:3002/offers/${offer.id}`, {
-//         ...offer,
-//         availability: offer.availability === true ? false : true
-//     })
-//     .catch(err => console.log(err))
-//     dispatch({
-//         type: CHANGE_AVAILABILITY,
-//         payload: offer.id
-//     })
-// }
-
-// export const deleteCar = id => dispatch => {
-//     dispatch({
-//         type: DELETE_CAR,
-//         payload: id
-//     })
-// }
+export const setNotesByHash = hash => dispatch => {
+    dispatch({
+        type: SET_NOTES_BY_HASH,
+        payload: hash
+    })
+}

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 //COMPONENTS
 import AddNote from './components/AddNote';
@@ -6,7 +5,7 @@ import Notes from './components/Notes';
 //MUI
 import Grid from '@material-ui/core/Grid';
 //REDUX
-import {connect, Provider} from 'react-redux';
+import {Provider} from 'react-redux';
 import store from './redux/store';
 
 const App = () => {

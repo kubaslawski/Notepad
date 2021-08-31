@@ -1,26 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {deleteNote} from '../redux/actions/dataActions';
+import {deleteNote, setNotesByHash} from '../redux/actions/dataActions';
 //
 import remove from '../icons/remove.svg';
 //
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 const Note = (props) => {
 
     const {title, description, tags} = props.note; 
-    const {deleteNote} = props;
+    const {deleteNote, setNotesByHash} = props;
     
-    const handleEdit = () => {
-
-    }
-
     const handleDelete = () => {
         deleteNote(props.note);
+    }
+
+    const handleHash = event => {
+        let hash = event.target.innerHTML.substring(1);
+        setNotesByHash(hash)
     }
 
     return (
@@ -33,7 +33,7 @@ const Note = (props) => {
                     {tags && tags.length > 0 ? (
                         tags.map((tag => {
                             return (
-                                <span className="note-card__tag">#{tag.trim()} </span>
+                                <span onClick={handleHash} value={tag} className="note-card__tag">#{tag.trim()} </span>
                             )
                         }))
                     ) : (
@@ -52,7 +52,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    deleteNote
+    deleteNote,
+    setNotesByHash
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Note)
